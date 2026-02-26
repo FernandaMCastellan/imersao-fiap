@@ -1,0 +1,62 @@
+.loja{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.painel-cadastro{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.card{
+    background: #e6e6e6;
+    padding: 0 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+input{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 100%;
+    max-width: 308px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.list-card 
+{
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    padding-top: 10px;
+ }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-bottom: 1px solid #999;
+}
+
+th{
+    text-align: left;
+    padding-bottom: 10px;
+    font-size: 1rem;
+}
+ 
