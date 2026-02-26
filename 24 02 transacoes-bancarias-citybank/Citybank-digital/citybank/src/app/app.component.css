@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eee;
+}
+
+.container{
+    max-width: 400px;
+    margin: auto;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+.header{
+background: linear-gradient(135deg, #5f2cff, #7b4dff);
+color: #fff;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0;
+}
+
+header h2{
+    margin-top: 0;
+}
+
+.filtros{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+button{
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+}
+
+button.ativo{
+    background: white;
+    border: 2px solid #5f2cff;
+}
+
+.lista{
+    padding: 0 50px 50px;
+}
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 15px;
+    border-left: 6px solid #612cff70;
+}
+
+.valor{
+    font-weight: bold;
+}
+
+.positivo{
+    color: #16a34a;    
+}
+.negativo{
+    color: #dc2626
+}
+
+.data{
+    padding-right: 15px;
+}

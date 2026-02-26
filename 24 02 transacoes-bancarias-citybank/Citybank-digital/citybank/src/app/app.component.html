@@ -1,0 +1,29 @@
+<div class="container">
+  <header class="header">
+    <h1>Citybank Digital</h1>
+    <p>Saldo Atual</p>
+    <h2>{{ saldo | currency:'BRL' }}</h2>
+  </header>
+
+  <div class="filtros">
+    <button (click)="mudarFiltro('todos')" [class.ativo]="filtro === 'todos'">Todos</button>
+    <button (click)="mudarFiltro('entrada')" [class.ativo]="filtro === 'entrada'">Entradas</button>
+    <button (click)="mudarFiltro('saída')" [class.ativo]="filtro === 'saída'">Saídas</button>
+  </div>
+
+  <div class="lista">
+    <div class="card" *ngFor="let t of transacoesFiltradas">
+      <div>
+        <small class="data">{{ t.data }}</small>
+        <strong>{{ t.descricao }}</strong>
+      </div>
+
+      <div class="valor" [class.positivo]="t.tipo === 'entrada'"
+      [class.negativo]="t.tipo === 'saída'">
+        
+        <span>{{ t.tipo === 'entrada' ? '+' : '-' }}</span>
+        <span>{{ t.valor | currency:'BRL':'symbol':'1.2-2' : "pt-BR" }}</span>
+      </div>
+    </div>
+  </div>
+</div>
