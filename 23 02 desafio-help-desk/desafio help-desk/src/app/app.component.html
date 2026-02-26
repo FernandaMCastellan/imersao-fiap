@@ -1,0 +1,54 @@
+<div class="blog-container">
+  <header>
+      <h1>Suporte ao Cliente</h1>
+  </header>
+
+  <section class="formulario">
+      <h2>{{postEditado() ? 'Editando Ticket' : 'Novo Ticket'}}</h2>
+      <input [(ngModel)]="novoCliente" placeholder="Nome">
+      <textarea [(ngModel)]="novaOcorrencia" placeholder="Digite a ocorrência"></textarea>
+
+      @if (postEditado()){
+          <button (click)="salvarEditar()">Salvar Alterações</button>
+          <button (click)="cancelarEdicao()">Cancelar</button>
+      }
+      @else{
+          <button (click)="adicionarTicket()">Cadastrar Ticket</button>
+      }
+
+  </section>
+  <section class="feed">
+      
+      @for (post of posts(); track post.titulo){ 
+          <article class="post-card">
+              <div class="post-header">
+                  <h3>{{post.titulo}}</h3>
+                  <div class="acoes">
+                      <button (click)="editarPost(post)">Editar</button>
+                      <button (click)="excluirPost(post)">X</button>
+                  </div>
+              </div>
+              <p>{{post.conteudo}}</p>
+
+          </article>
+      }
+  </section>
+  <hr>
+  <section class="feed">
+      <h2>Últimas postagens</h2>
+      @for (post of posts(); track post.titulo){
+           <article class="post-card">
+              <div class="post-header">
+                  <h3>{{post.titulo}}</h3>
+                  <div class="acoes">
+                      <button (click)="excluirPost(post)">X</button>
+                  </div>
+              </div>
+              <p>{{ post.conteudo}}</p>
+          </article>
+      } @empty {
+          <p>Nenhum post publicado</p>
+      }
+
+  </section>
+</div>
