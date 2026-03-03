@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+.btn-primary {
+  @apply border-2 border-blue-600 text-blue-600 font-bold py-4 rounded-2xl transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-blue-600 text-white;
+}

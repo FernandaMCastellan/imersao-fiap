@@ -1,0 +1,55 @@
+<div class="bg-gray-50 py-16 min-h-screen flex items-center">
+  <div class="container mx-auto px-4">
+    
+    <div class="max-w-md mx-auto">
+
+      <!-- Cabeçalho -->
+      <div class="mb-10 text-center">
+        <h2 class="text-4xl font-black text-gray-900 mb-2">
+          Redefinir Senha
+        </h2>
+        <p class="text-gray-500 font-medium">
+          Digite seu email e escolha uma nova senha.
+        </p>
+        <div class="w-20 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white rounded-4xl shadow-sm border border-gray-100 p-8 transition-all duration-300 hover:shadow-2xl">
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-6">
+
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+          />
+
+          <input
+            type="password"
+            formControlName="novaSenha"
+            placeholder="Nova senha"
+            class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+          />
+
+          <input
+            type="password"
+            formControlName="confirmarSenha"
+            placeholder="Confirmar senha"
+            class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+          />
+
+          <button
+            type="submit"
+            class="w-full btn-primary active:scale-95"
+          >
+            Redefinir Senha
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

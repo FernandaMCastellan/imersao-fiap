@@ -11,7 +11,16 @@ import { produtoResolver } from './core/resolvers/produto.resolver';
 import { LoginComponent } from './components/login.component/login.component';
 
 export const routes: Routes = [
-
+  { path: 'cadastro',
+    loadComponent: () => import('./components/cadastro/cadastro.component')
+    .then(m => m.CadastroComponent)
+  }, 
+  {
+    path: 'redefinir-senha',
+      loadComponent: () =>
+    import('./components/redefinir-senha/redefinir-senha.component')
+      .then(m => m.RedefinirSenhaComponent)
+  },
   // Rota de Login: Acesso direto para autenticação do usuário.
   { path: 'login', component: LoginComponent },
 
