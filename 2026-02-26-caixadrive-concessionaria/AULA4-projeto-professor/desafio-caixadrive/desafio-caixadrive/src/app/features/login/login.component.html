@@ -1,0 +1,17 @@
+<div style="display: flex; justify-content: center; margin-top: 100px">
+    <form [formGroup]="formLogin" (ngSubmit)="login()" style="width:300px">
+        <h2>Login</h2>
+        <div>
+            <div>
+            <label for="">E-mail</label>
+            <input type="email" formControlName="email">
+            </div>
+            <div>
+            <label for="">Senha</label>
+            <input type="password" formControlName="senha">
+            </div>
+
+            <button type="submit">Entrar</button>
+        </div>
+    </form>    
+</div>

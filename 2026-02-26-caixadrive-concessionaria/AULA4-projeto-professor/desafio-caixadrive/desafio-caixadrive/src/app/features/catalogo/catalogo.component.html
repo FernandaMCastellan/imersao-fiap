@@ -1,0 +1,23 @@
+<div style="display:flex; gap:20px; flex-wrap:wrap">
+
+  <mat-card *ngFor="let carro of veiculos" style="width:250px">
+
+    <img mat-card-image [src]="carro.imagem">
+
+    <mat-card-title>
+      {{ carro.modelo }}
+    </mat-card-title>
+
+    <mat-card-content>
+      <p>Preço: {{ carro.preco | currency:'BRL' }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary">
+        Reservar Veículo
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "modelo": "Audi",
+        "preco": 450000,
+        "imagem": "assets/img/mclaren2.jpg"
+    },
+    {
+        "id": 2,
+        "modelo": "Ferrari",
+        "preco": 550000,
+        "imagem": "assets/img/mercedes.jpg"
+    },
+    {
+        "id": 3,
+        "modelo": "MCLaren 720S",
+        "preco": 650000,
+        "imagem":  "assets/img/tesla.jpg"
+    },
+    {
+        "id": 4,
+        "modelo": "MCLaren 12C",
+        "preco": 600000,
+        "imagem": "assets/img/mclaren2.jpg"
+    },
+    {
+        "id": 5,
+        "modelo": "Mercedes",
+        "preco": 300000,
+        "imagem": "assets/img/mercedes.jpg"
+    },
+      {
+        "id": 6,
+        "modelo": "Tesla",
+        "preco": 350000,
+        "imagem": "assets/img/tesla.jpg"
+    }
+]
