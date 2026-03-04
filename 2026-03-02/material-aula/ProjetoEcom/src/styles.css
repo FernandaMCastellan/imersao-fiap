@@ -9,3 +9,18 @@
 .btn-primary:hover {
   @apply bg-blue-600 text-white;
 }
+
+@theme {
+  --color-primary: #1e40af;
+  --color-bg: white;
+}
+
+.tema-verde {
+  --color-primary: #166534;
+  --color-bg: #f0fdf4;
+}
+
+.tema-dark {
+  --color-primary: #3b82f6;
+  --color-bg: #0f172a;
+}

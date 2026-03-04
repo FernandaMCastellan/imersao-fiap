@@ -12,6 +12,20 @@
         <div class="group bg-white rounded-4xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
           
           <div class="relative overflow-hidden aspect-square bg-gray-50">
+            
+            <button 
+            type="button" 
+            (click)="alternarFavorito(item.id)"
+            class="absolute top-4 right-4 z-10 h-10 w-10 rounded-full border border-gray-200 bg-white/95 text-xl shadow transition hover:scale-110"
+            [attr.aria-label]="produtoEFavorito(item.id) ? 'Remover dos Favoritos' : 'Adicionar aos favoritos'"
+            >
+            @if( produtoEFavorito(item.id)) {
+              <span class="text-red-500">♥</span>
+            }@else {
+              <span class="text-gray-500">♡</span>
+            }
+          </button>
+
             <img 
               [src]="item.imagem" 
               [alt]="item.nome"

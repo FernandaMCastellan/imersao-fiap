@@ -13,6 +13,8 @@ import { Observable } from 'rxjs';
 // Importa o serviço que faz a ponte com os dados e a interface que define o que é um Produto.
 import { ProdutoService } from '../../../core/services/produto.service';
 import { Produto } from '../../../models/produto'; 
+import { FavoritoService } from '../../../core/services/favorito.service';
+
 
 @Component({
   selector: 'app-produto-lista', 
@@ -28,10 +30,20 @@ export class ProdutoListaComponent {
    * É ele quem sabe como buscar os dados no arquivo 'produto.json'.
    */
   private servicoProduto = inject(ProdutoService);
+
+  private favoritosService = inject(FavoritoService);
   
   /*O sinal '$' no final do nome é uma convenção para indicar que esta variável é um Observable.
    * Ela não guarda os produtos diretamente, mas sim uma "promessa" de que os produtos chegarão.
    * Usamos a interface Produto[] para garantir que teremos uma lista válida.
    */
   produtos$: Observable<Produto[]> = this.servicoProduto.obterProdutos();
+
+  alternarFavorito(produtoId: number){
+    this.favoritosService.alternarFavorito(produtoId);
+  }
+
+  produtoEFavorito(produtoId:number):boolean {
+    return this.favoritosService.isFavorito(produtoId)
+  }
 }

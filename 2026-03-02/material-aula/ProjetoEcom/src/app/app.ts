@@ -30,4 +30,5 @@ export class App {
    * Define o título da aplicação de forma reativa. 
    */
   title = signal('exemplo');
+  
 }
