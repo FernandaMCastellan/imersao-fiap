@@ -17,16 +17,26 @@ export class FavoritoService {
   }
 
   isFavorito(produtoId: number): boolean {
+    
       return this.favoritosIds().includes(produtoId);
     }
 
     alternarFavorito(produtoId: number){
+      let foiAdicionado = false
+
       this.favoritosIds.update(listaAtual=>{
         if(listaAtual.includes(produtoId)){
+          foiAdicionado = false;
           return listaAtual.filter((id)=> id !== produtoId)
         } 
+
+        foiAdicionado = true;
+
         return [...listaAtual, produtoId];
       });
+
+        return foiAdicionado;
+
     }
 
 

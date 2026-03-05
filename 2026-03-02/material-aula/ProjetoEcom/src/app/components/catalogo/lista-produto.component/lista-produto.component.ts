@@ -1,16 +1,8 @@
-// Importa o núcleo do Angular para criar o componente e injetar dependências.
-import { Component, inject } from '@angular/core';
 
-// Importa Pipes essenciais: AsyncPipe (para gerenciar dados do tipo Observable) e CurrencyPipe (para formatar dinheiro).
+import { Component, OnDestroy, inject, signal } from '@angular/core';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
-
-// Importa o módulo de rotas para que os links de "Ver Detalhes" funcionem no HTML.
 import { RouterModule } from '@angular/router';
-
-// Importa o Observable do RxJS, que representa um "fluxo de dados" que chegará do arquivo JSON.
 import { Observable } from 'rxjs';
-
-// Importa o serviço que faz a ponte com os dados e a interface que define o que é um Produto.
 import { ProdutoService } from '../../../core/services/produto.service';
 import { Produto } from '../../../models/produto'; 
 import { FavoritoService } from '../../../core/services/favorito.service';
@@ -25,25 +17,43 @@ import { FavoritoService } from '../../../core/services/favorito.service';
   
   templateUrl: './lista-produto.component.html'
 })
-export class ProdutoListaComponent {
-  /* Injeção de Dependência: Estamos trazendo o ProdutoService para dentro do componente.
-   * É ele quem sabe como buscar os dados no arquivo 'produto.json'.
-   */
+export class ProdutoListaComponent implements OnDestroy{
+
   private servicoProduto = inject(ProdutoService);
 
   private favoritosService = inject(FavoritoService);
+  private timeoutNotificacao: ReturnType<typeof setTimeout> | null = null;
   
-  /*O sinal '$' no final do nome é uma convenção para indicar que esta variável é um Observable.
-   * Ela não guarda os produtos diretamente, mas sim uma "promessa" de que os produtos chegarão.
-   * Usamos a interface Produto[] para garantir que teremos uma lista válida.
-   */
   produtos$: Observable<Produto[]> = this.servicoProduto.obterProdutos();
 
+  mostrarNotificacaoFavorito = signal(false);
+  
   alternarFavorito(produtoId: number){
-    this.favoritosService.alternarFavorito(produtoId);
+    const foiAdicionado = this.favoritosService.alternarFavorito(produtoId);
+
+    if(foiAdicionado){
+      this.exibirNotificacao();
+    }
   }
 
   produtoEFavorito(produtoId:number):boolean {
-    return this.favoritosService.isFavorito(produtoId)
+    return this.favoritosService.isFavorito(produtoId);
+  }
+
+  ngOnDestroy(): void {
+    if(this.timeoutNotificacao){
+      clearTimeout(this.timeoutNotificacao);
+    }
+  }
+
+  private exibirNotificacao(){
+    this.mostrarNotificacaoFavorito.set(true);
+
+    if(this.timeoutNotificacao){
+      clearTimeout(this.timeoutNotificacao);
+    }
+    this.timeoutNotificacao = setTimeout(()=>{
+      this.mostrarNotificacaoFavorito.set(false);
+    }, 2200)
   }
 }
