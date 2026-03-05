@@ -1,0 +1,26 @@
+<router-outlet></router-outlet>
+
+<mat-toolbar color="primary" style="height: 100px;">
+
+    <button mat-button routerLink="/">
+    <span style="font-size: 1.75rem; padding: 5px;"><strong>Caixa</strong>Drive</span>
+  </button>
+  
+
+  <span style="flex:1"></span>
+
+  <button mat-button routerLink="/catalogo" style="font-size: 1rem;">
+    Catálogo
+  </button>
+
+  <button mat-button routerLink="/perfil" style="font-size: 1rem;">
+    Perfil
+  </button>
+
+  <button mat-button (click)="logout()" style="font-size: 1rem;">
+    Logout
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
