@@ -1,4 +1,4 @@
-<div style="display:flex; gap:20px; flex-wrap:wrap">
+<div class="catalogo-grid" style="display:flex; gap:20px; flex-wrap:wrap">
 
   <mat-card *ngFor="let carro of veiculos" style="width:250px">
 
@@ -13,9 +13,10 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary">
-        Reservar Veículo
-      </button>
+       <button  mat-raised-button color="primary" (click)="
+  reservarCarro(carro)">
+      Reservar Veículo
+        </button>
     </mat-card-actions>
 
   </mat-card>

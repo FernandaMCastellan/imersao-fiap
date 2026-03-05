@@ -1,1 +1,33 @@
-<p>perfil works!</p>
+<div class="perfil-container">
+
+<mat-card class="perfil-card">
+    
+      <mat-card-header>
+        <mat-card-title>Meu Perfil</mat-card-title>        
+      </mat-card-header>
+
+     <mat-card-content>    
+        <p><strong>Nome:</strong>{{usuario.nome}}</p>
+        <p><strong>E-mail:</strong>{{usuario.email}}</p>
+
+        <p>
+        <strong>Perfil:</strong>
+        <span class="badge">{{usuario.perfil}}</span>
+        </p>
+     </mat-card-content>
+</mat-card>              
+
+<h3>Veículos reservados</h3>
+
+<div class="reservas-grid">
+    <mat-card *ngFor="let carro of reservas" class="cardReserva"> 
+
+        <mat-card-title> {{carro.modelo}} </mat-card-title>
+
+        <img mat-card-image [src]="carro.imagem" class="imagemVeiculo">
+             
+        <mat-card-content> {{carro.preco | currency: 'BRL'}}</mat-card-content>      
+
+
+</mat-card>
+</div>

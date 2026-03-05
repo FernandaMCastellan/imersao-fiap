@@ -1,59 +1,34 @@
-# DesafioCaixadrive
+Desafio:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+Portal de Vendas CaixaDrive Concessionária
 
-## Development server
+O sistema deve permitir que o cliente navegue pelo catálogo e gerencie suas intenções de compra em um painel personalizado.
 
-To start a local development server, run:
+Requisitos Funcionais 
 
-```bash
-ng serve
-```
+Acesso ao Portal: Tela de login vinculada ao usuarios.json para identificar o perfil do cliente (VIP, Standard ou Admin).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Catálogo: Exibir o estoque de veículos elétricos usando Cards Visuais.
 
-## Code scaffolding
+Cada card deve conter: Foto do modelo, Descrição, Preço e Botão "Reservar Veículo".
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Gestão de Reservas (Meu Perfil): Espaço onde o cliente visualiza seus dados e a lista de carros que ele marcou interesse.
 
-```bash
-ng generate component component-name
-```
+Os dados devem persistir no navegador (LocalStorage) para simular uma reserva real.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Segurança de Rota: Impedir que curiosos acessem o catálogo sem estarem devidamente logados no portal.
 
-```bash
-ng generate --help
-```
 
-## Building
+Estrutura principais
 
-To build the project run:
+estoque.json	Lista de veículos (ID, Modelo, Preço, Imagem).
 
-```bash
-ng build
-```
+usuarios.json	Base de clientes autorizados.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+auth.guard.ts	Proteção de entrada no catálogo.
 
-## Running unit tests
+consorcio.resolver.ts	Carregamento antecipado do catálogo.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+app.routes.ts - gerenciar as rotas
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+perfil.component.ts	Painel de controle do comprador.

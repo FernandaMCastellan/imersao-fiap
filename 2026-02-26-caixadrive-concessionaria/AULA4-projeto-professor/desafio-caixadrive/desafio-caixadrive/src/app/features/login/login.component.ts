@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormControl, FormGroup} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
+import { ReservaService } from '../../core/reserva/reserva.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -17,7 +23,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private reservaService: ReservaService
   ) {}
 
   ngOnInit(){
@@ -49,4 +56,8 @@ export class LoginComponent {
         
       }
     })
-}}
+}
+  reservas: any[] = [];
+
+
+}

@@ -3,7 +3,7 @@
         "id": 1,
         "nome": "Fernanda",
         "email": "fernanda@email.com" ,
-        "senha" : "a123456b",
+        "senha" : "123456",
         "perfil" : "VIP"
     },
     {
@@ -17,7 +17,7 @@
         "id": 3,
         "nome": "Admin",
         "email": "admin@email.com" ,
-        "senha" : "123456bv",
+        "senha" : "123456b",
         "perfil" : "Admin"
     }
 ]
